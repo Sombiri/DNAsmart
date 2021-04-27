@@ -356,7 +356,7 @@ export default function LineStepper() {
 
       /* const userData = surveyData;
 
-      fetch('http://example.com',{ //enter endpoint here
+      fetch('http://example.com',{ //enter endpoint here path to the phpfile use as endpoint
           method: "POST",
           body: JSON.stringify(userData),
           headers: {
