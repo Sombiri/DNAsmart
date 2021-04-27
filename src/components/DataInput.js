@@ -34,13 +34,13 @@ export default function DataInput({ handleOpen, handleNext, handleChange, select
 
 
     const body = (
-        <div className={paper}>
-          <h2 id="simple-modal-title">Encoded and Decoded sequence</h2>
-          <p id="simple-modal-description">
-            Please upload your encoded and decoded sequence
-          </p>
-          <form onSubmit={handleNext}>
-                {/* <Grid item> */}
+        // <div className={paper}>
+          <form className={paper} onSubmit={handleNext}>
+                <h2 id="simple-modal-title">Encoded and Decoded sequence</h2>
+                <p id="simple-modal-description">
+                    Please upload your encoded and decoded sequence
+                </p>
+                
                 <input
                 accept=".fasta"
                 className={uploadButton}
@@ -50,22 +50,18 @@ export default function DataInput({ handleOpen, handleNext, handleChange, select
                 required
                 onChange={handleChange}
                 />
-            {/* </Grid> */}
-            {/* <Grid container justify='center'> */}
-                {/* <Grid item> */}
-                    <label htmlFor="contained-button-file">
-                    <Button variant="contained" color="primary" component="span">
-                        Upload
-                    </Button>
-                    </label>
-                    <Typography>{selectedFileName}</Typography>
-                {/* </Grid> */}
-            {/* </Grid> */}
+                <label htmlFor="contained-button-file">
+                <Button variant="contained" color="primary" component="span">
+                    Upload
+                </Button>
+                </label>
+                <Typography>{selectedFileName}</Typography>
+            {selectedFileName.endsWith('.fasta') ?  
             <Grid container justify='center'>
                 <Button variant='contained' color='primary' type='submit'>Next</Button>
-            </Grid>
+            </Grid> :null}
           </form>
-        </div>
+        //</div>
       );
 
     return (

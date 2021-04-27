@@ -5,36 +5,36 @@
             "category":"no-sort",
             "type":"multiple",
             "question":"Without sorting and merging any attributes and choose from the options the TOP 3 sequences",
-            "correct_answer":"RU1, LT1, LT2",
+            "correct_answer":"LT_DNA_20, LT_DNA_21, LT_DNA_22",
             "incorrect_answers":[
-                "TD18, TD16, TD15", 
-                "LT4, LT1, LT3", 
-                "RU1, LT2, TD13", 
-                "TD19, LT5, LT2"
+                "LT_DNA_25, LT_DNA_30, LT_DNA_21", 
+                "LT_DNA_27, LT_DNA_26, LT_DNA_23", 
+                "LT_DNA_28, LT_DNA_30, LT_DNA_22", 
+                "LT_DNA_25, LT_DNA_22, LT_DNA_20"
             ]
         },
         {
             "category":"sortbyhammingdistance",
             "type":"multiple",
             "question":"Sort the sequences using only one attribute (the Hamming Distance) and choose from the options the TOP 3 sequences",
-            "correct_answer":"RU3, TD11, TD18",
+            "correct_answer":"LT_DNA_24, LT_DNA_26, LT_DNA_23",
             "incorrect_answers":[
-                "TD18, TD16, TD15", 
-                "LT4, LT1, LT3", 
-                "RU1, LT2, TD13", 
-                "TD19, LT5, LT2"
+                "LT_DNA_25, LT_DNA_30, LT_DNA_21", 
+                "LT_DNA_27, LT_DNA_26, LT_DNA_23", 
+                "LT_DNA_28, LT_DNA_30, LT_DNA_22", 
+                "LT_DNA_25, LT_DNA_22, LT_DNA_20"
             ]
         },
         {
             "category":"groupattributes",
             "type":"multiple",
             "question":"Merge and add weights for the following attributes (Number of Errors (60%), Levenshtein Distance (30%), Hamming Distance (10%)) and sort, then choose from the options the TOP 3 sequences.",
-            "correct_answer":"RU3, TD18, TD11",
+            "correct_answer":"LT_DNA_24, LT_DNA_29, LT_DNA_27",
             "incorrect_answers":[
-                "TD18, TD16, TD15", 
-                "LT4, LT1, LT3", 
-                "RU1, LT2, TD13", 
-                "TD19, LT5, LT2"
+                "LT_DNA_25, LT_DNA_30, LT_DNA_21", 
+                "LT_DNA_27, LT_DNA_26, LT_DNA_23", 
+                "LT_DNA_28, LT_DNA_30, LT_DNA_22", 
+                "LT_DNA_25, LT_DNA_22, LT_DNA_20"
             ]
         }
     ]

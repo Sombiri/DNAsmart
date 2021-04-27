@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Grid, makeStyles, } from '@material-ui/core'
+import { Grid, makeStyles, } from '@material-ui/core'
 import { LineUp, LineUpStringColumnDesc, LineUpNumberColumnDesc } from "lineupjsx";
 import SurveyTrain from './SurveyTrain';
 import SurveyTest from './SurveyTest';
@@ -134,6 +134,7 @@ export default function ResultView({
 
     useEffect(() => {
         buildLineUpColumns();
+        // eslint-disable-next-line
     }, [])
 
     return (
@@ -152,7 +153,7 @@ export default function ResultView({
           {lineUpColumns}
         </LineUp>                
         <Grid container justify='center'>
-          <Button variant='contained' onClick={handleBack}>Back</Button>
+          {/* <Button variant='contained' onClick={handleBack}>Back</Button> */}
           {/* <Button disabled={completePage} variant='contained' color='primary' onClick={handleNext}>Next</Button>  */}
         </Grid> 
       </div>

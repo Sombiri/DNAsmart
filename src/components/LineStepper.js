@@ -80,11 +80,16 @@ export default function LineStepper() {
     
     let fileReader
     const handleChange = async (event)=>{
+
         const { name, } = event.target.files[0]
         let newSelectedFileName = selectedFileName
         newSelectedFileName = name
-        setSelectedFileName(newSelectedFileName)
-
+        if(!newSelectedFileName.endsWith('.fasta')){
+            alert('Invalid file extension. Upload a fasta file')
+            return false
+        }else{
+            setSelectedFileName(newSelectedFileName)
+        }
         let file = event.target.files[0]
         
         
@@ -230,7 +235,8 @@ export default function LineStepper() {
 
     useEffect(() => {
         verifyLengthOfSequences();
-    }, [inputSequences]);
+        // eslint-disable-next-line
+    }, [inputSequences]); 
     
     const steps = getSteps()
     function getStepContent(step){
@@ -341,6 +347,7 @@ export default function LineStepper() {
         setActiveStep((prevActiveStep) => prevActiveStep - 1)
         setOpen(true)
         setCompletePage(!completePage)
+        setSelectedFileName('')
     }
 
     const handleReset = (event) => {

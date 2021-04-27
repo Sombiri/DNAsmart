@@ -1,4 +1,5 @@
 //fasta2json class
+// eslint-disable-next-line
 var fasta2json = new function()
 {
 	

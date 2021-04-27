@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function LastStep({handleReset, handleBack, handleChange}) {
+export default function LastStep({handleReset, handleChange}) {
 
     const { root, form } = useStyles()
 
@@ -34,8 +34,7 @@ export default function LastStep({handleReset, handleBack, handleChange}) {
             handleChange={handleChange}
           /> 
           <Grid container justify='center'>
-            <Button type='submit' /* onClick={(e) => handleSubmit(e)} */>Complete</Button>  
-            <Button onClick={handleBack}>Back</Button>
+            <Button type='submit'>Complete</Button>  
           </Grid> 
           </form>
         </div>
