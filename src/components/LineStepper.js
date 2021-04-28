@@ -5,6 +5,8 @@ import LastStep from './LastStep'
 import Metrics from './Metrics'
 import ResultView from './ResultView'
 import clsx from 'clsx';
+import { shuffleArray } from '../utils';
+import firebase from "../firebase";
 import { calculateHammingDistance } from "../multi-attributes/HammingDistance";
 import { calculateLevenshteinDistance } from "../multi-attributes/LevenshteinDistance";
 import { calculateDamerauLevenshtein } from "../multi-attributes/DamereauLevenshtein";
@@ -46,6 +48,7 @@ function getSteps() {
     ]
 }
 
+const TOTAL_QUESTIONS = 3
 
 export default function LineStepper() {
     const [ activeStep, setActiveStep ] = useState(0)
@@ -72,6 +75,10 @@ export default function LineStepper() {
     const [showTrainPage, setShowTrainPage] = useState(true)
     const [ timer, setTimer] = useState(0)
     const [ surveyData, setSurveyData ] = useState({})
+    const [ userAnswers, setUserAnswers] = useState([])
+    const [ showAnswers, setShowAnswers ] = useState(false)
+    const [ questions, setQuestions ] = useState([])
+    const [ number, setNumber ] =useState(0)
     const countRef = useRef(null)
 
 
@@ -117,6 +124,49 @@ export default function LineStepper() {
         //console.log(newSelectedFile)
         setSelectedFile(newSelectedFile);
     }
+
+    const fetchQuestions = () => {
+        fetch('./test-data.json', {
+            headers : { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+             }
+          })
+            .then(response => response.json())
+            .then(function(myJson){
+                const questions = myJson.results.map((question) => ({
+                  ...question,
+                  answers: shuffleArray([question.correct_answer, ...question.incorrect_answers])
+                }))
+
+                setQuestions(questions)
+                
+            }).catch(
+                function(err){
+                    console.log(err, ' error')
+                }
+            )
+    }
+    useEffect(() =>{
+      fetchQuestions()
+    }, [])
+
+
+
+    const handleAnswer = (answer) => {
+        const correct = questions[number].correct_answer === answer
+  
+        const answerObject = {
+            question : questions[number].question,
+            answer,
+            correct,
+            correctAnswer: questions[number].correct_answer,
+            time: formatTime(timer)
+        }
+        setUserAnswers(prev => [...prev, answerObject])
+        
+        setShowAnswers(true) 
+      }
 
 
     const handleSurveyChange = (event) => {
@@ -275,7 +325,14 @@ export default function LineStepper() {
                         dataToVisualize={dataToVisualize}
                         handleStartTest={handleStartTest}
                         showTrainPage={showTrainPage}
-                        timer={formatTime(timer)}
+                        //timer={formatTime(timer)}
+                        handleAnswer={handleAnswer}
+                        showAnswers={showAnswers}
+                        handleNextQuestion={handleNextQuestion}
+                        questions={questions}
+                        number={number}
+                        totalQuestions={TOTAL_QUESTIONS}
+                        userAnswers={userAnswers}
                     />
                 )
             case 3:
@@ -326,7 +383,11 @@ export default function LineStepper() {
     
         return `${getMinutes} : ${getSeconds}`
       }
-     
+    
+    const handleNextQuestion = () =>{
+        setShowAnswers(false)
+        setNumber(number+1)
+    }
 
     const handleNext = (event) => {
         event.preventDefault()
@@ -334,10 +395,15 @@ export default function LineStepper() {
         if (currentStep === 1) calculateMetrics();
         if(currentStep === 1 && !showTrainPage) {
             countRef.current = setInterval(() => {
-                setTimer((timer) => timer + 1)
+                setTimer((timer)=> timer + 1)
               }, 1000)
         }  //startTimer ie handleStartTimer
-        if(currentStep === 2 && !showTrainPage) clearInterval(countRef.current)   //stopTimer ie handleStop
+        if(currentStep === 2 && !showTrainPage) {
+            clearInterval(countRef.current) 
+            //console.log(userAnswers)
+            const answersRef = firebase.database().ref('Users Answers')
+            answersRef.push(userAnswers)
+        }  //stopTimer ie handleStop
         setActiveStep(currentStep + 1);
         setOpen(false)
         
@@ -350,9 +416,16 @@ export default function LineStepper() {
         setSelectedFileName('')
     }
 
+
     const handleReset = (event) => {
       event.preventDefault()
-      console.log(surveyData)
+      //console.log(surveyData)
+
+      const surveyRef = firebase.database().ref('survey')
+      surveyRef.push(surveyData)
+      
+      
+
 
       /* const userData = surveyData;
 
