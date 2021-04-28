@@ -30,7 +30,14 @@ export default function ResultView({
   handleStartTest,
   dataToVisualize, 
   timer,
-  showTrainPage 
+  showTrainPage,
+  handleAnswer,
+  showAnswers,
+  handleNextQuestion,
+  questions,
+  number, 
+  totalQuestions,
+  userAnswers 
 }) {
     const { lineUp, root } = useStyles()
 
@@ -143,6 +150,13 @@ export default function ResultView({
           <SurveyTest 
           timer={timer}
           handleNext={handleNext}
+          showAnswers={showAnswers}
+          handleAnswer={handleAnswer}
+          handleNextQuestion={handleNextQuestion}
+          questions={questions}
+          number={number}
+          totalQuestions={totalQuestions}
+          userAnswers={userAnswers}
           /> :
           <SurveyTrain 
         handleStartTest={handleStartTest}

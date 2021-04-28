@@ -1,7 +1,7 @@
-import React, { useState, useEffect }from 'react';
+import React from 'react';
 import QuestionTest from './QuestionTest';
 import { makeStyles, Button, Grid } from '@material-ui/core'
-import { shuffleArray } from '../utils';
+
 
 
 
@@ -17,106 +17,30 @@ const useStyles = makeStyles(() => ({
     },
   }))
 
-const TOTAL_QUESTIONS = 3
 
+function SurveyTest({ 
+  handleNext, 
+  completePage, 
+  timer, 
+  handleAnswer, 
+  showAnswers, 
+  userAnswers, 
+  handleNextQuestion,
+  questions,
+  number,
+  totalQuestions
 
-function SurveyTest({ handleNext, completePage, timer}) {
+}) {
     const { root } = useStyles()
-
-    const [ questions, setQuestions ] = useState([])
-    const [ number, setNumber ] =useState(0)
-    const [ userAnswers, setUserAnswers] = useState([])
-    const [ showAnswers, setShowAnswers ] = useState(false)
     
-
-
-    const fetchQuestions = async() => {
-        await fetch('./test-data.json', {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-          })
-            .then(response => response.json())
-            .then(function(myJson){
-                const questions = myJson.results.map((question) => ({
-                  ...question,
-                  answers: shuffleArray([question.correct_answer, ...question.incorrect_answers])
-                }))
-
-                setQuestions(questions)
-                
-            }).catch(
-                function(err){
-                    console.log(err, ' error')
-                }
-            )
-    }
-    useEffect(() =>{
-      fetchQuestions()
-    }, [])
-
-    const handleAnswer = (answer) => {
-      const correct = questions[number].correct_answer === answer
-
-      const answerObject = {
-          question : questions[number].question,
-          answer,
-          correct,
-          correctAnswer: questions[number].correct_answer,
-          time: timer
-      }
-      setUserAnswers(prev => [...prev, answerObject])
-      
-      setShowAnswers(true) 
-    }
-    //console.log(timer)
-
-    
-    //console.log(holder)
-
-
-    const sendData = () => {
-        let holder = []
-        holder = userAnswers
-        const userData = holder
-        console.log(userData)
-  
-        /* const userData = surveyData;
-  
-        fetch('http://example.com',{ //enter endpoint here
-            method: "POST",
-            body: JSON.stringify(userData),
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-          }).then(response => {
-            response.json().then(data =>{
-              console.log("Successful" + data);
-            })
-        }) */
-      } //pass info to server 
-
-      /* useEffect(() =>{
-        sendData()
-      }, []) */
-
-      sendData()
-   
-    const handleNextQuestion = () =>{
-        setShowAnswers(false)
-        setNumber(number+1)
-  
-    }
 
     return(
         <div className={root}>
            {
-            questions.length === TOTAL_QUESTIONS ?
+            questions.length === totalQuestions ?
             <QuestionTest 
                 questionNr={number + 1}
-                totalQuestions={TOTAL_QUESTIONS}
+                totalQuestions={totalQuestions}
                 question={questions[number].question}
                 handleAnswer={handleAnswer}
                 showAnswers={showAnswers}
@@ -126,12 +50,12 @@ function SurveyTest({ handleNext, completePage, timer}) {
             /> 
             : null}
             <div>
-                {showAnswers && userAnswers.length !==TOTAL_QUESTIONS? (
+                {showAnswers && userAnswers.length !==totalQuestions? (
                     <Grid container justify='center'>
                         <Button variant='contained'onClick={handleNextQuestion}>Next</Button>
                     </Grid>
                 ) 
-                : showAnswers && userAnswers.length ===TOTAL_QUESTIONS ? 
+                : showAnswers && userAnswers.length ===totalQuestions ? 
                 <Grid container justify='center'>
                     <Button disabled={completePage} variant='contained' onClick={handleNext}>Next</Button> 
                 </Grid>
