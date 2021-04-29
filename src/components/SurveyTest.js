@@ -52,12 +52,12 @@ function SurveyTest({
             <div>
                 {showAnswers && userAnswers.length !==totalQuestions? (
                     <Grid container justify='center'>
-                        <Button variant='contained'onClick={handleNextQuestion}>Next</Button>
+                        <Button variant='contained'color='primary' onClick={handleNextQuestion}>Next</Button>
                     </Grid>
                 ) 
                 : showAnswers && userAnswers.length ===totalQuestions ? 
                 <Grid container justify='center'>
-                    <Button disabled={completePage} variant='contained' onClick={handleNext}>Next</Button> 
+                    <Button disabled={completePage} variant='contained' color='primary' onClick={handleNext}>Next</Button> 
                 </Grid>
                 :null}
                 

@@ -108,7 +108,7 @@ function SurveyTrain({handleStartTest}) {
             <div>
                 {showAnswers && (
                     <Grid container justify='center'>
-                        <Button variant='contained'onClick={handleNextQuestion}>Next</Button>
+                        <Button variant='contained'color='primary' onClick={handleNextQuestion}>Next</Button>
                     </Grid>
                 )}
             </div>

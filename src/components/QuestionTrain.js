@@ -78,18 +78,18 @@ function QuestionTrain({
                 {questionNr === 1?
                     <div>
                         <p>{question}</p>
-                        <span><b>Hint:</b> 
+                        <span><b>Hint:</b> To sort, click on the icon 
                             <Tooltip title='Click to sort' placement='left-end'>
                                 <img src={sortImg} alt='sort' />
-                            </Tooltip>
+                            </Tooltip> for the attribute mentioned 
                         </span> 
                     </div>:
                     <div>
                         <p>{question}</p>
-                        <span><b>Hint:</b> Drag and Drop Levenshtein Distance onto Number of errors then change the weights
+                        <span><b>Hint:</b> Drag and Drop Levenshtein Distance onto Number of errors then change the weights by clicking
                             <Tooltip title='Click to Edit weight' placement='left-end'>
                                 <img src={editWeight} alt='edit weight'/>
-                            </Tooltip>
+                            </Tooltip> to enter weights for merged attributes. Don't forget to sort.
                         </span> 
                     </div>
             }

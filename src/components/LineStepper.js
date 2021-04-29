@@ -70,8 +70,7 @@ export default function LineStepper() {
         numberOfErrors: false
     })
     const [open, setOpen] = useState(false)
-    const [ showPage, setShowPage ] = useState(true)
-    const [completePage, setCompletePage] = useState(true)
+    const [ showPage, setShowPage ] = useState(false)
     const [showTrainPage, setShowTrainPage] = useState(true)
     const [ timer, setTimer] = useState(0)
     const [ surveyData, setSurveyData ] = useState({})
@@ -259,11 +258,6 @@ export default function LineStepper() {
     }
 
 
-    /* const onCompletePage = useCallback((data) =>{
-        console.log(data)
-        setShowPage(!showPage)
-    }, [showPage]) */
-
     const showAfterCompleteQuestion = () => {
         return(
             <div>
@@ -341,7 +335,6 @@ export default function LineStepper() {
                         {
                             showPage?
                             <LastStep
-                                //showCompletePage={data=>onCompletePage(data)}
                                 handleReset={handleReset}
                                 handleBack={handleBack}
                                 handleChange={handleSurveyChange}
@@ -401,8 +394,7 @@ export default function LineStepper() {
         if(currentStep === 2 && !showTrainPage) {
             clearInterval(countRef.current) 
             //console.log(userAnswers)
-            const answersRef = firebase.database().ref('Users Answers')
-            answersRef.push(userAnswers)
+            
         }  //stopTimer ie handleStop
         setActiveStep(currentStep + 1);
         setOpen(false)
@@ -412,20 +404,19 @@ export default function LineStepper() {
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1)
         setOpen(true)
-        setCompletePage(!completePage)
         setSelectedFileName('')
     }
 
 
     const handleReset = (event) => {
       event.preventDefault()
-      //console.log(surveyData)
+      //console.log(userAnswers)
+
+      const answersRef = firebase.database().ref('Users Answers')
+      answersRef.push(userAnswers)
 
       const surveyRef = firebase.database().ref('survey')
       surveyRef.push(surveyData)
-      
-      
-
 
       /* const userData = surveyData;
 
@@ -449,9 +440,17 @@ export default function LineStepper() {
             { label: '', value: ''},
             { label: '', value: '' }
         ])
+        setIsChecked({
+            hammingDistance: false,
+            levenshteinDistance: false,
+            damerauLevenshteinDistance: false,
+            conditionalEntropy: false,
+            mutualInformation: false,
+            numberOfErrors: false
+        })
         setShowPage(true)
         setOpen(false)
-        setCompletePage(!completePage)
+        setShowTrainPage(true)
         setTimer(0)
     }
 
@@ -481,7 +480,6 @@ export default function LineStepper() {
         })
         setShowPage(true)
         setOpen(true)
-        setCompletePage(!completePage)
         setShowTrainPage(false)
         setTimer(0)
     }

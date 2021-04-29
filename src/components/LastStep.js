@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Button, Grid } from '@material-ui/core'
+import { makeStyles, Button, Grid, Box } from '@material-ui/core'
 import Questionnaire from "./Questionnaire";
 
 
@@ -34,7 +34,9 @@ export default function LastStep({handleReset, handleChange}) {
             handleChange={handleChange}
           /> 
           <Grid container justify='center'>
-            <Button type='submit'>Complete</Button>  
+            <Box mx='auto' p={3}>
+              <Button type='submit' variant='contained' color='primary'>Complete Evaluation</Button>  
+            </Box>
           </Grid> 
           </form>
         </div>

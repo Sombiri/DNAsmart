@@ -18,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
         
     },
     paper2: {
-        paddingLeft: '35%',
-        //paddingRight: '50%',
-        //paddingBottom: '50%',
-        paddingTop: '10%'
+        paddingLeft: '25%',
+        paddingRight: '25%',
+        paddingBottom: '5%',
+        paddingTop: '5%'
     },
     uploadButton: {
         display: 'none'
@@ -67,9 +67,14 @@ export default function DataInput({ handleOpen, handleNext, handleChange, select
     return (
         <div className={paper2}>
              <p>
-                In the following survey, you will have two stages: Training and Testing stage.<br/> 
-                There are questions for each stage and at the end there is an additional survey <br/>to evaluate this approach and gather anonymous data of your participation.<br/><br/>
-                <b>Take your time to answer as accurately as possible.</b><br/> Please click on <b>'Start'</b> button when you are ready.
+                <h2>Welcome to DNAsmart: DNA Storage Multi-Attribute Ranking Tool</h2>
+                In the following survey, you will have two stages: <b>Training and Testing stage.</b><br/> 
+                There are questions for each stage and at the end there is an additional survey <br/>to evaluate this tool and gather anonymous data from your participation.<br/><br/>
+
+                The dataset for this evaluation can be found <a href='https://dnasmart.mathematik.uni-marburg.de/MESA_fasta.php'>here.</a><br/>
+                The Training stage shows guide on how to use the tool before evaluation. <br/>
+                Kindly upload the sample file for training stage.<br/><br/>
+                <b>Take your time to answer as accurately as possible.</b><br/> Please click on <b>'Start'</b> button when you are ready to start with the training stage.
               </p>
               <Button variant='contained' color='primary' onClick={handleOpen}>
                 Start
