@@ -68,13 +68,14 @@ export default function DataInput({ handleOpen, handleNext, handleChange, select
         <div className={paper2}>
              <p>
                 <h2>Welcome to DNAsmart: DNA Storage Multi-Attribute Ranking Tool</h2>
-                In the following survey, you will have two stages: <b>Training and Testing stage.</b><br/> 
-                There are questions for each stage and at the end there is an additional survey <br/>to evaluate this tool and gather anonymous data from your participation.<br/><br/>
+                In the following survey, you will have two steps: <b>Step 1 and Step 2.</b><br/> 
+                There are questions for each step and at the end there is an additional survey <br/>to evaluate this tool and gather anonymous data from your participation.<br/><br/>
 
                 The dataset for this evaluation can be found <a href='https://dnasmart.mathematik.uni-marburg.de/MESA_fasta.php'>here.</a><br/>
-                The Training stage shows guide on how to use the tool before evaluation. <br/>
-                Kindly upload the sample file for training stage.<br/><br/>
-                <b>Take your time to answer as accurately as possible.</b><br/> Please click on <b>'Start'</b> button when you are ready to start with the training stage.
+                <b>Step 1</b> will show how to use our new tool. <br/>
+                <b>Step 2</b> will evaluate your usage. <br/>
+                Kindly upload the dataset accordingly.<br/><br/>
+                <b>Take your time to answer as accurately as possible.</b><br/> Please click on <b>'Start'</b> button when you are ready to start.
               </p>
               <Button variant='contained' color='primary' onClick={handleOpen}>
                 Start
