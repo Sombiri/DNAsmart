@@ -80,7 +80,7 @@ function SurveyTrain({handleStartTest}) {
            <div>
              <p>
                <h4>
-                 This is the end of the training stage, Click here to <Button variant='outlined' onClick={handleStartTest}>start the testing stage</Button> 
+                 This is the end of the Step 1, Click here to <Button variant='outlined' onClick={handleStartTest}>start Step 2</Button> 
                 </h4>
               </p>
            </div> :
