@@ -418,21 +418,6 @@ export default function LineStepper() {
       const surveyRef = firebase.database().ref('survey')
       surveyRef.push(surveyData)
 
-      /* const userData = surveyData;
-
-      fetch('http://example.com',{ //enter endpoint here path to the phpfile use as endpoint
-          method: "POST",
-          body: JSON.stringify(userData),
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        }).then(response => {
-          response.json().then(data =>{
-            console.log("Successful" + data);
-          })
-      }) */
-
         setActiveStep(0)
         setSelectedFile('')
         setSelectedFileName('')

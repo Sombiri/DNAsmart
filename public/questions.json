@@ -23,9 +23,29 @@
                 ]
             },
             {
+                "type": "radiogen",
+                "name": "student",
+                "title": "Are you a Student?",
+                "isRequired": true,
+                "choices": [
+                    "Yes",
+                    "No"
+                ]
+            },
+            {
+                "type": "radiogen",
+                "name": "mosla",
+                "title": "Are you a member of the MOSLA Consortium?",
+                "isRequired": true,
+                "choices": [
+                    "Yes",
+                    "No"
+                ]
+            },
+            {
                 "name": "domainOfExpertise",
                 "type": "text",
-                "title": "Enter your domian of expertise/study:",
+                "title": "Enter your domain of expertise/study:",
                 "isRequired": true,
                 "autoComplete": "domainOfExpertise"
             },
