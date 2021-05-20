@@ -161,7 +161,7 @@ export default function ResultView({
           <SurveyTrain 
         handleStartTest={handleStartTest}
           /> 
-        }
+        } 
         
         <LineUp className={lineUp} data={dataToVisualize}>
           {lineUpColumns}
