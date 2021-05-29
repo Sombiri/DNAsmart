@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
         
     },
     paper2: {
-        paddingLeft: '25%',
-        paddingRight: '25%',
+        paddingLeft: '30%',
+        paddingRight: '30%',
         paddingBottom: '5%',
         paddingTop: '5%'
     },
