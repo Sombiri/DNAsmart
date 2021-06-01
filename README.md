@@ -26,7 +26,7 @@ Runs the tool on your local server.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Evaluation 
-This repository contains the evaluation Implementation which is used to test the usage of the tool. The evaluation is divided into two steps: the training step and the testing step. The training step is used in order to get familiar with the interactive features of the tool. For each step of the evaluation, there are questions about the usage of the tool. In the training step, hints are provided alongside with the questions to help the user with the usage of the tool. The questions for each step can be found [here](https://github.com/Sombiri/DNAsmart/tree/develop/src/evaluation_question)
+This repository contains the evaluation Implementation which is used to test the usage of the tool. The evaluation is divided into two steps: the training step and the testing step. The training step is used in order to get familiar with the interactive features of the tool. For each step of the evaluation, there are questions about the usage of the tool. In the training step, hints are provided alongside with the questions to help the user in the usage of the tool. The questions for each step can be found [here](https://github.com/Sombiri/DNAsmart/tree/develop/src/evaluation_question)
 
 ### General Usage
 1. Install and run the tool on your PC
@@ -37,6 +37,8 @@ This repository contains the evaluation Implementation which is used to test the
 ### Data set
 1. The data sets for the tool must be a multi-Fasta file
 2. Data sets used for the evaluation can be found in [DNAsmart_data](https://github.com/Sombiri/DNAsmart/tree/develop/src/DNAsmart_data) 
+
+See [https://dnasmart.mathematik.uni-marburg.de/](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype with sample data
 
 
 
