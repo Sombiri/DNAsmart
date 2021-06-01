@@ -36,7 +36,7 @@ This repository contains the evaluation Implementation which is used to test the
 
 ### Data set
 1. The data sets for the tool must be multi-Fasta file
-2. Data sets used for the evaluation can be found in []() 
+2. Data sets used for the evaluation can be found in [DNAsmart_data](https://github.com/Sombiri/DNAsmart/tree/develop/src/DNAsmart_data) 
 
 
 
