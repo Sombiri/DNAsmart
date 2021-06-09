@@ -1,12 +1,9 @@
-import { Stepper, Step, StepLabel, Typography, Grid, Button, makeStyles } from '@material-ui/core'
-import React, { useState, useEffect, useRef } from 'react'
+import { Stepper, Step, StepLabel, Typography, makeStyles } from '@material-ui/core'
+import React, { useState, useEffect } from 'react'
 import DataInput from './DataInput'
-import LastStep from './LastStep'
 import Metrics from './Metrics'
 import ResultView from './ResultView'
 import clsx from 'clsx';
-import { shuffleArray } from '../utils';
-import firebase from "../firebase";
 import { calculateHammingDistance } from "../multi-attributes/HammingDistance";
 import { calculateLevenshteinDistance } from "../multi-attributes/LevenshteinDistance";
 import { calculateDamerauLevenshtein } from "../multi-attributes/DamereauLevenshtein";
@@ -43,12 +40,10 @@ function getSteps() {
     return [
         'Reference and Input Sequence',
         'Metrics',
-        'Results',
-        'End'
+        'Results'
     ]
 }
 
-const TOTAL_QUESTIONS = 3
 
 export default function LineStepper() {
     const [ activeStep, setActiveStep ] = useState(0)
@@ -70,19 +65,7 @@ export default function LineStepper() {
         numberOfErrors: false
     })
     const [open, setOpen] = useState(false)
-    const [ showPage, setShowPage ] = useState(false)
-    const [showTrainPage, setShowTrainPage] = useState(true)
-    const [ timer, setTimer] = useState(0)
-    const [ surveyData, setSurveyData ] = useState({})
-    const [ userAnswers, setUserAnswers] = useState([])
-    const [ showAnswers, setShowAnswers ] = useState(false)
-    const [ questions, setQuestions ] = useState([])
-    const [ number, setNumber ] =useState(0)
-    const countRef = useRef(null)
 
-
-    
-    
     
     let fileReader
     const handleChange = async (event)=>{
@@ -109,70 +92,16 @@ export default function LineStepper() {
             return result
         } 
         const data = await readFile()
-        //console.log(data)
         let fastaParser = require('../FastaToObject.js');
         let fasta = fastaParser.ParseFasta(data);
-        //console.log(fasta)
         let newInputSequences = inputSequences
         newInputSequences = fasta
-        //console.log(newInputSequences)
         setInputSequences(newInputSequences)
 
 
         let newSelectedFile = data
-        //console.log(newSelectedFile)
         setSelectedFile(newSelectedFile);
     }
-
-    const fetchQuestions = () => {
-        fetch('./test-data.json', {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-          })
-            .then(response => response.json())
-            .then(function(myJson){
-                const questions = myJson.results.map((question) => ({
-                  ...question,
-                  answers: shuffleArray([question.correct_answer, ...question.incorrect_answers])
-                }))
-
-                setQuestions(questions)
-                
-            }).catch(
-                function(err){
-                    console.log(err, ' error')
-                }
-            )
-    }
-    useEffect(() =>{
-      fetchQuestions()
-    }, [])
-
-
-
-    const handleAnswer = (answer) => {
-        const correct = questions[number].correct_answer === answer
-  
-        const answerObject = {
-            question : questions[number].question,
-            answer,
-            correct,
-            correctAnswer: questions[number].correct_answer,
-            time: formatTime(timer)
-        }
-        setUserAnswers(prev => [...prev, answerObject])
-        
-        setShowAnswers(true) 
-      }
-
-
-    const handleSurveyChange = (event) => {
-        const {name, value} = event.target
-        setSurveyData({...surveyData, [name]:value})
-      }
-    
     const handleIsChecked = (event) => {
         setIsChecked({ ...isChecked, [event.target.name]: event.target.checked });
     }
@@ -256,21 +185,6 @@ export default function LineStepper() {
        })
        setDataToVisualize(calculatedMetrics)
     }
-
-
-    const showAfterCompleteQuestion = () => {
-        return(
-            <div>
-                <Typography variant='h2'>Thank you for filling out the questions</Typography>
-                <Grid container justify='center'>
-                    <Button onClick={handleBack}>Back</Button>
-                    <Button variant='contained' color='primary' onClick={handleReset}>Start Over</Button>
-                </Grid>
-            </div>
-                
-        )
-    }
-
     
     useEffect(() => {
         const atLeastOneSelected = Object.values(isChecked).some((v) => v);
@@ -288,7 +202,6 @@ export default function LineStepper() {
             case 0:
                 return (
                     <DataInput
-                        handleBack={handleBack}
                         handleNext={handleNext}
                         handleChange={handleChange}
                         handleOpen={handleOpen}
@@ -318,30 +231,8 @@ export default function LineStepper() {
                         handleBack={handleBack}
                         dataToVisualize={dataToVisualize}
                         handleStartTest={handleStartTest}
-                        showTrainPage={showTrainPage}
-                        //timer={formatTime(timer)}
-                        handleAnswer={handleAnswer}
-                        showAnswers={showAnswers}
-                        handleNextQuestion={handleNextQuestion}
-                        questions={questions}
-                        number={number}
-                        totalQuestions={TOTAL_QUESTIONS}
-                        userAnswers={userAnswers}
+                        handleReset={handleReset}
                     />
-                )
-            case 3:
-                return (
-                    <div>
-                        {
-                            showPage?
-                            <LastStep
-                                handleReset={handleReset}
-                                handleBack={handleBack}
-                                handleChange={handleSurveyChange}
-                            /> :
-                            showAfterCompleteQuestion()
-                        }
-                    </div>
                 )
             default:
                 return 'Unknown step'
@@ -354,8 +245,7 @@ export default function LineStepper() {
         const icons = {
             1: 1,
             2: 2,
-            3: 3,
-            4: 4
+            3: 3
           };
         return (
           <div
@@ -369,33 +259,11 @@ export default function LineStepper() {
         );
       }
 
-      const formatTime = () => {
-        const getSeconds = `0${(timer % 60)}`.slice(-2)
-        const minutes = `${Math.floor(timer / 60)}`
-        const getMinutes = `0${minutes % 60}`.slice(-2)
-    
-        return `${getMinutes} : ${getSeconds}`
-      }
-    
-    const handleNextQuestion = () =>{
-        setShowAnswers(false)
-        setNumber(number+1)
-    }
 
     const handleNext = (event) => {
         event.preventDefault()
         const currentStep = activeStep;
         if (currentStep === 1) calculateMetrics();
-        if(currentStep === 1 && !showTrainPage) {
-            countRef.current = setInterval(() => {
-                setTimer((timer)=> timer + 1)
-              }, 1000)
-        }  //startTimer ie handleStartTimer
-        if(currentStep === 2 && !showTrainPage) {
-            clearInterval(countRef.current) 
-            //console.log(userAnswers)
-            
-        }  //stopTimer ie handleStop
         setActiveStep(currentStep + 1);
         setOpen(false)
         
@@ -410,13 +278,6 @@ export default function LineStepper() {
 
     const handleReset = (event) => {
       event.preventDefault()
-      //console.log(userAnswers)
-
-      const answersRef = firebase.database().ref('Users Answers')
-      answersRef.push(userAnswers)
-
-      const surveyRef = firebase.database().ref('survey')
-      surveyRef.push(surveyData)
 
         setActiveStep(0)
         setSelectedFile('')
@@ -433,10 +294,7 @@ export default function LineStepper() {
             mutualInformation: false,
             numberOfErrors: false
         })
-        setShowPage(true)
         setOpen(false)
-        setShowTrainPage(true)
-        setTimer(0)
     }
 
     //modal
@@ -463,10 +321,7 @@ export default function LineStepper() {
             mutualInformation: false,
             numberOfErrors: false
         })
-        setShowPage(true)
         setOpen(true)
-        setShowTrainPage(false)
-        setTimer(0)
     }
     
     return (

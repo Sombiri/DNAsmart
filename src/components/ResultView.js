@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Grid, makeStyles, Button } from '@material-ui/core'
 import { LineUp, LineUpStringColumnDesc, LineUpNumberColumnDesc } from "lineupjsx";
-import SurveyTrain from './SurveyTrain';
-import SurveyTest from './SurveyTest';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,19 +23,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function ResultView({
-  handleNext, 
   handleBack, 
-  handleStartTest,
-  dataToVisualize, 
-  timer,
-  showTrainPage,
-  handleAnswer,
-  showAnswers,
-  handleNextQuestion,
-  questions,
-  number, 
-  totalQuestions,
-  userAnswers 
+  handleReset,
+  dataToVisualize
 }) {
     const { lineUp, root } = useStyles()
 
@@ -146,29 +134,12 @@ export default function ResultView({
 
     return (
       <div className={root}>
-        {/* {!showTrainPage ?
-          <SurveyTest 
-          timer={timer}
-          handleNext={handleNext}
-          showAnswers={showAnswers}
-          handleAnswer={handleAnswer}
-          handleNextQuestion={handleNextQuestion}
-          questions={questions}
-          number={number}
-          totalQuestions={totalQuestions}
-          userAnswers={userAnswers}
-          /> :
-          <SurveyTrain 
-        handleStartTest={handleStartTest}
-          /> 
-        } */} 
-        
         <LineUp className={lineUp} data={dataToVisualize}>
           {lineUpColumns}
         </LineUp>                
         <Grid container justify='center'>
-          <Button variant='contained' onClick={handleBack}>Back</Button> 
-          <Button variant='contained' color='primary' onClick={handleNext}>Next</Button> 
+          <Button onClick={handleBack}>Back</Button> 
+          <Button variant='contained' color='primary' onClick={handleReset}>Start Over</Button>
         </Grid> 
       </div>
     )

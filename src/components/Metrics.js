@@ -28,10 +28,26 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function Metrics({ handleNext, handleBack, handleUnselectAll, handleSelectAll, handleIsChecked, isChecked, metricsSelectError, hammingDistanceError}) {
+export default function Metrics({ 
+    handleNext, 
+    handleBack, 
+    handleUnselectAll, 
+    handleSelectAll, 
+    handleIsChecked, 
+    isChecked, 
+    metricsSelectError, 
+    hammingDistanceError
+}) {
     const { root, formLabel, formGroup } = useStyles()
 
-    const { hammingDistance, levenshteinDistance, damerauLevenshteinDistance, conditionalEntropy, mutualInformation, numberOfErrors } = isChecked
+    const { 
+        hammingDistance, 
+        levenshteinDistance, 
+        damerauLevenshteinDistance, 
+        conditionalEntropy, 
+        mutualInformation, 
+        numberOfErrors 
+    } = isChecked
 
 
     return (
