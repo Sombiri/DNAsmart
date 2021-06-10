@@ -70,7 +70,7 @@ export default function ResultView({
                 key="hamming"
                 column="Hamming Distance"
                 label="Hamming Distance"
-                color="blue"
+                color="#1170aa"
                 domain={[0, getMaximumValueOfMetric("Hamming Distance")]}
                 width={200}
               />
@@ -82,7 +82,7 @@ export default function ResultView({
                 key="levenshtein"
                 column="Levenshtein Distance"
                 label="Levenshtein Distance"
-                color="red"
+                color="#a3cce9"
                 domain={[0, getMaximumValueOfMetric("Levenshtein Distance")]}
                 width={200}
               />
@@ -94,7 +94,7 @@ export default function ResultView({
                 key="conditionalEntropy"
                 column="Conditional Entropy"
                 label="Conditional Entropy"
-                color="brown"
+                color="#c85200"
                 domain={[0, getMaximumValueOfMetric("Conditional Entropy")]}
                 width={200}
               />
@@ -106,7 +106,7 @@ export default function ResultView({
                 key="damerauLevenshtein"
                 column="Damerau-Levenshtein Distance"
                 label="Damerau-Levenshtein Distance"
-                color="green"
+                color="#ffbc79"
                 domain={[0, getMaximumValueOfMetric("Damerau-Levenshtein Distance")]}
                 width={200}
               />
@@ -118,7 +118,7 @@ export default function ResultView({
                 key="mutualInformation"
                 column="Mutual Information"
                 label="Mutual Information"
-                color="purple"
+                color="#5fa2ce"
                 domain={[0, getMaximumValueOfMetric("Mutual Information")]}
                 width={200}
               />
@@ -130,7 +130,7 @@ export default function ResultView({
                 key="numberOfErrors"
                 column="Number of Errors"
                 label="Number of Errors"
-                color="cyan"
+                color="#fc7d0b"
                 domain={[0, getMaximumValueOfMetric("Number of Errors")]}
                 width={200}
               />

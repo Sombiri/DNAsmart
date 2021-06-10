@@ -10,7 +10,7 @@ The aim of this tool is to visually represent the effect of attribute weights on
 
 ## Usage
 **Installation: How to run it locally**
-Run:
+Clone and run:
 
 ```bash
 npm install
@@ -38,7 +38,7 @@ This repository contains the evaluation Implementation which is used to test the
 1. The data sets for the tool must be a multi-Fasta file
 2. Data sets used for the evaluation can be found in [DNAsmart_data](https://github.com/Sombiri/DNAsmart/tree/develop/src/DNAsmart_data) 
 
-See [https://dnasmart.mathematik.uni-marburg.de/](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype with sample data
+See [https://dnasmart.mathematik.uni-marburg.de/](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype.
 
 
 
