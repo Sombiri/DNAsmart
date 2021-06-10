@@ -2,7 +2,7 @@
   "name": "dna-storage-multi-attribute-ranking-tool",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dnasmart.mathematik.uni-marburg.de/",
+  "homepage": "https://dnasmart.mathematik.uni-marburg.de/evaluation",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
