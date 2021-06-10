@@ -1,6 +1,6 @@
 # DNAsmart: DNA Storage Multi-Attribute Ranking Tool
 
-The aim of this tool is to visually represent the effect of attribute weights on the ranking of decoded sequences. To support the ranking of these decoded sequences, from a DNA storage system or experiment, the introduction of weights on certain attributes leads to a specific ranking (favoring specific sequences). By relying on sorting and grouping of such attributes, we obtain an interactive change in the ranking of the best sequences. The rationale is to be able to provide insight into the attribute space by using different attribute combinations. For example, which attribute combination leads to the optimal sequence or Top 3 sequences to compare encoding experiments.
+The aim of this tool is to visually represent the effect of attribute weights on the ranking of decoded sequences. To support the ranking of these decoded sequences, from a DNA-based storage system or experiment, the introduction of weights on certain attributes leads to a specific ranking (favoring specific sequences). By relying on sorting and grouping of such attributes, we obtain an interactive change in the ranking of the best sequences. The rationale is to be able to provide insight into the attribute space by using different attribute combinations. For example, which attribute combination leads to the optimal sequence or Top 3 sequences to compare encoding experiments.
 
 ## Dependencies
 
@@ -10,7 +10,7 @@ The aim of this tool is to visually represent the effect of attribute weights on
 
 ## Usage
 **Installation: How to run it locally**
-Run:
+Clone and run:
 
 ```bash
 npm install
@@ -38,7 +38,7 @@ This repository contains the evaluation Implementation which is used to test the
 1. The data sets for the tool must be a multi-Fasta file
 2. Data sets used for the evaluation can be found in [DNAsmart_data](https://github.com/Sombiri/DNAsmart/tree/develop/src/DNAsmart_data) 
 
-See [https://dnasmart.mathematik.uni-marburg.de/](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype with sample data
+See [https://dnasmart.mathematik.uni-marburg.de/](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype.
 
 
 
