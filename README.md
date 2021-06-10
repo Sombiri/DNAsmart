@@ -8,25 +8,8 @@ The aim of this tool is to visually represent the effect of attribute weights on
 * LineUp.js
 
 ## Usage
-**Installation: How to run it locally**
-Run:
-
-```bash
-npm install
-```
-to install the tool and its Dependencies.
-
-In the project directory, you can run:
-
-```bash
-npm start
-```
-Runs the tool on your local server.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-
 ### General Usage
-1. Install and run the tool on your PC
+1. Go to [DNAsmart](https://dnasmart.mathematik.uni-marburg.de/)
 2. Upload your data sets, click Next
 3. Select your DNA storage attribute of choice, click Next
 4. Explore the rankings of the decoded sequences
