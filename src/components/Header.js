@@ -49,7 +49,7 @@ export default function Header() {
         <header className={root}>
                 <AppBar className={header}>
                     <Toolbar className={toolbar}>
-                        <img src={logo} alt="Code LineUp" className={logostyle} />
+                        {/* <img src={logo} alt="Code LineUp" className={logostyle} /> */}
                         <div>
                         <Button color='inherit' className={menuButton}>Home</Button>
                         <Button color="inherit" href="https://mosla.mathematik.uni-marburg.de/" className={menuButton}>About</Button>
