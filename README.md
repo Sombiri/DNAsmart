@@ -33,7 +33,7 @@ This repository contains the evaluation Implementation which is used to test the
 
 | Image of Sequence View | Selection View | Ranking View |
 | --- | --- | --- |
-| ![](/Users/somtee/Downloads/DNAsmart/src/images/sequence_view.png) | ![](/Users/somtee/Downloads/DNAsmart/src/images/selection_view.png) | ![](src/images/ranking_view.png) | 
+| ![](src/images/sequence_view.png) | ![](src/images/selection_view.png) | ![](src/images/ranking_view.png) | 
 
 
 ### Data set
