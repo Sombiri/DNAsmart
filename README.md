@@ -44,7 +44,7 @@ This repository contains the evaluation Implementation which is used to test the
 
 | Design Choices | Intuitiveness | Useful for DNA storage |
 | --- | --- | --- |
-| ![](src/images/Design_Choices.png) | ![](src/images/Intuitiveness.png) | ![](src/images/Useful_for_DNA_storage.png) | 
+| ![](src/images/Design_Choices.png) | ![](src/images/Intuitiveness.png) | ![](src/images/Useful_for_ DNA_storage.png) | 
 
 See [here](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype.
 
