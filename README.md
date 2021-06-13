@@ -31,9 +31,9 @@ This repository contains the evaluation Implementation which is used to test the
 3. Select your DNA storage attribute of choice, click Next
 4. Explore the rankings of the decoded sequences
 
-<!-- | Image of Sequence View | Selection View | Ranking View |
+| Image of Sequence View | Selection View | Ranking View |
 | --- | --- | --- |
-| ![](Application_Images/IMG_20190529_150022.jpg) | ![](Application_Images/Screenshot_20190527-155401_NCT_AR.jpg) | ![](Application_Images/Screenshot_20190722-132915_NCT_AR.jpg) | -->
+| ![](/Users/somtee/Downloads/DNAsmart/src/images/sequence_view.png) | ![](/Users/somtee/Downloads/DNAsmart/src/images/selection_view.png) | ![](src/images/ranking_view.png) | 
 
 
 ### Data set
