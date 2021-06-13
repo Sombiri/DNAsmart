@@ -4,8 +4,7 @@ The aim of this tool is to visually represent the effect of attribute weights on
 
 ## Dependencies
 
-* Material UI
-* LineUp.js
+* Node.js
 
 ## Usage
 ### General Usage
