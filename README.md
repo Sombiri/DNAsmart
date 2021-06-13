@@ -46,7 +46,7 @@ This repository contains the evaluation Implementation which is used to test the
 | --- | --- | --- |
 | ![](src/images/Design Choices.png) | ![](src/images/Intuitiveness.png) | ![](src/images/Useful for DNA storage.png) | 
 
-See [https://dnasmart.mathematik.uni-marburg.de/](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype.
+See [here](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype.
 
 
 
