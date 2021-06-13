@@ -3,10 +3,7 @@
 The aim of this tool is to visually represent the effect of attribute weights on the ranking of decoded sequences. To support the ranking of these decoded sequences, from a DNA-based storage system or experiment, the introduction of weights on certain attributes leads to a specific ranking (favoring specific sequences). By relying on sorting and grouping of such attributes, we obtain an interactive change in the ranking of the best sequences. The rationale is to be able to provide insight into the attribute space by using different attribute combinations. For example, which attribute combination leads to the optimal sequence or Top 3 sequences to compare encoding experiments.
 
 ## Dependencies
-
-* Material UI
-* LineUp.js
-* Firebase
+* Node.js
 
 ## Usage
 **Installation: How to run it locally**
@@ -33,6 +30,11 @@ This repository contains the evaluation Implementation which is used to test the
 2. Upload your data sets, click Next
 3. Select your DNA storage attribute of choice, click Next
 4. Explore the rankings of the decoded sequences
+
+<!-- | Image of Sequence View | Selection View | Ranking View |
+| --- | --- | --- |
+| ![](Application_Images/IMG_20190529_150022.jpg) | ![](Application_Images/Screenshot_20190527-155401_NCT_AR.jpg) | ![](Application_Images/Screenshot_20190722-132915_NCT_AR.jpg) | -->
+
 
 ### Data set
 1. The data sets for the tool must be a multi-Fasta file
