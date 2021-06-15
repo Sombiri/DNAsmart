@@ -2,8 +2,8 @@ import React from 'react';
 import ClearIcon from '@material-ui/icons/Clear';
 import CheckIcon from '@material-ui/icons/Check';
 import { Button, makeStyles, Tooltip,} from '@material-ui/core'
-import sortImg  from "/Users/somtee/Downloads/Code_LineUp_demo/src/images/sortImg.png";
-import editWeight from "/Users/somtee/Downloads/Code_LineUp_demo/src/images/editWeights.png";
+import sortImg  from "/Users/somtee/Downloads/DNAsmart/src/images/sortImg.png";
+import editWeight from "/Users/somtee/Downloads/DNAsmart/src/images/editWeights.png";
 
 
 

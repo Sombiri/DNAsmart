@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, Toolbar, makeStyles, Button, } from '@material-ui/core'
-import logo from '/Users/somtee/Downloads/Code_LineUp_demo/src/images/header_logo_sm.png' 
+import logo from '/Users/somtee/Downloads/DNAsmart/src/images/header_logo_sm.png' 
 
 
 const useStyles = makeStyles(() => ({
