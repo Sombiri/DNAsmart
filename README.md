@@ -17,7 +17,7 @@ The aim of this tool is to visually represent the effect of attribute weights on
 1. The data sets for the tool must be a multi-Fasta file
 2. Data sets used for the evaluation can be found in [DNAsmart_data](https://github.com/Sombiri/DNAsmart/tree/develop/src/DNAsmart_data)  -->
 
-<!-- See [https://dnasmart.mathematik.uni-marburg.de/](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype with sample data -->
+See [here](https://github.com/Sombiri/DNAsmart/tree/Evaluate) for the evaluation branch with sample data
 
 
 
