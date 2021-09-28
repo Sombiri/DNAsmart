@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-export default function DataInput({ handleOpen, handleNext, handleChange, selectedFileName, selectedFile, open }) {
+export default function DataInput({ handleOpen, handleNext, handleChange, selectedFileName, handleClose, selectedFile, open }) {
     const { paper2, paper, uploadButton } = useStyles()
 
 
@@ -90,7 +90,7 @@ export default function DataInput({ handleOpen, handleNext, handleChange, select
               </Button>
             <Modal
                 open={open}
-                //onClose={handleNext}
+                onClose={handleClose}
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
                 className={paper2}
