@@ -292,6 +292,7 @@ export default function LineStepper() {
                         handleNext={handleNext}
                         handleChange={handleChange}
                         handleOpen={handleOpen}
+                        handleClose={handleClose}
                         selectedFileName={selectedFileName}
                         selectedFile={selectedFile}
                         open={open}
@@ -442,6 +443,9 @@ export default function LineStepper() {
     //modal
     const handleOpen = () => {
         setOpen(true)
+    }
+    const handleClose = () => {
+        setOpen(false)
     }
 
 

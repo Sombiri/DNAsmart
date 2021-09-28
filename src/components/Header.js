@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, Toolbar, makeStyles, Button, } from '@material-ui/core'
-import logo from '/Users/somtee/Downloads/DNAsmart/src/images/header_logo_sm.png' 
+import logo from '/Users/somtee/Downloads/DNAsmart/src/images/logo_dnasmart.png' 
 
 
 const useStyles = makeStyles(() => ({
@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
     },
     header: {
         backgroundColor: 'lightgrey',
-        height: 100,
+        height: 200,
         position: 'relative'
     
     },
@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
         
     },
     logostyle: {
-        maxWidth: 160,
+        maxWidth: 1000,
         marginRight: '10px'
         
     }
@@ -49,7 +49,7 @@ export default function Header() {
         <header className={root}>
                 <AppBar className={header}>
                     <Toolbar className={toolbar}>
-                        {/* <img src={logo} alt="Code LineUp" className={logostyle} /> */}
+                        {<img src={logo} alt="Code LineUp" className={logostyle} />}
                         <div>
                         <Button color='inherit' className={menuButton}>Home</Button>
                         <Button color="inherit" href="https://mosla.mathematik.uni-marburg.de/" className={menuButton}>About</Button>
