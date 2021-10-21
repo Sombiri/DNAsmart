@@ -67,6 +67,7 @@ export default function Metrics({
                                         onChange={handleIsChecked}  
                                         name='hammingDistance' 
                                         color='primary' 
+                                        disabled={hammingDistanceError}
                                         disableRipple
                                     />
                                 } 

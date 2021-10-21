@@ -129,7 +129,7 @@ export default function LineStepper() {
         const seqOfUnequalLength = allSequencesValuesNotRef.some(
             (s) => s.length !== referenceSequence.length
         )
-        setIsChecked({ ...isChecked, hammingDistance: false })
+        setIsChecked({ ...isChecked, hammingDistance: false})
         setHammingDistanceError(seqOfUnequalLength) 
     }
 
