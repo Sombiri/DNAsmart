@@ -40,13 +40,13 @@ This repository contains the evaluation Implementation which is used to test the
 1. The data sets for the tool must be a multi-Fasta file
 2. Data sets used for the evaluation can be found in [DNAsmart_data](https://github.com/Sombiri/DNAsmart/tree/Evaluate/src/DNAsmart_data) 
 
-### Graphical Chart
+<!-- ### Graphical Chart
 
 | Design Choices | Intuitiveness | Useful for DNA storage |
 | --- | --- | --- |
 | ![](src/images/designChoices.png) | ![](src/images/Intuitiveness.png) | ![](src/images/usefulforDNAstorage.png) | 
 
-See [here](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype.
+See [here](https://dnasmart.mathematik.uni-marburg.de/) for the online prototype. -->
 
 
 
