@@ -10,6 +10,7 @@ import firebase from "../firebase";
 import { calculateHammingDistance } from "../multi-attributes/HammingDistance";
 import { calculateLevenshteinDistance } from "../multi-attributes/LevenshteinDistance";
 import { calculateDamerauLevenshtein } from "../multi-attributes/DamereauLevenshtein";
+import { calculateGCcontent } from '../multi-attributes/GCcontent'
 import { calculateConditionalEntropy } from "../multi-attributes/ConditionalEntropy";
 import { calculateMutualInfo } from "../multi-attributes/MutualInformation";
 import { calculateNumOfErrors } from "../multi-attributes/NumberOfErrors";
