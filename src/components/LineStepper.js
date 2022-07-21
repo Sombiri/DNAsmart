@@ -66,6 +66,7 @@ export default function LineStepper() {
         hammingDistance: false,
         levenshteinDistance: false,
         damerauLevenshteinDistance: false,
+        gcContent: false,
         conditionalEntropy: false,
         mutualInformation: false,
         numberOfErrors: false
