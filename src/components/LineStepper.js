@@ -412,6 +412,7 @@ export default function LineStepper() {
     const handleReset = (event) => {
       event.preventDefault()
       //console.log(userAnswers)
+      //console.log(surveyData)
 
       const answersRef = firebase.database().ref('Users Answers')
       answersRef.push(userAnswers)
