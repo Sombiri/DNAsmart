@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Metrics({ handleNext, handleBack, handleUnselectAll, handleSelectAll, handleIsChecked, isChecked, metricsSelectError, hammingDistanceError}) {
     const { root, formLabel, formGroup } = useStyles()
 
-    const { hammingDistance, levenshteinDistance, damerauLevenshteinDistance, conditionalEntropy, mutualInformation, numberOfErrors } = isChecked
+    const { hammingDistance, levenshteinDistance, damerauLevenshteinDistance, gcContent, conditionalEntropy, mutualInformation, numberOfErrors } = isChecked
 
 
     return (
@@ -89,6 +89,18 @@ export default function Metrics({ handleNext, handleBack, handleUnselectAll, han
                             <FormControlLabel 
                                 control={
                                     <Checkbox
+                                        checked={gcContent}
+                                        onChange={handleIsChecked}  
+                                        name='gcContent' 
+                                        color='primary' 
+                                        disableRipple
+                                    />
+                                } 
+                                    label='GC Content' 
+                            />
+                            <FormControlLabel 
+                                control={
+                                    <Checkbox
                                         checked={conditionalEntropy}
                                         onChange={handleIsChecked} 
                                         name='conditionalEntropy' 
@@ -110,45 +122,45 @@ export default function Metrics({ handleNext, handleBack, handleUnselectAll, han
                                 } 
                                     label='Mutual Information' 
                             />
-                                        <FormControlLabel 
-                                            control={
-                                                <Checkbox
-                                                    checked={numberOfErrors}
-                                                    onChange={handleIsChecked}  
-                                                    name='numberOfErrors' 
-                                                    color='primary' 
-                                                    disableRipple
-                                                />
-                                            } 
-                                            label='Number of Errors' 
-                                        />
-                                    </FormGroup>
-                                </FormControl>
-                            </Grid>
+                            <FormControlLabel 
+                                control={
+                                    <Checkbox
+                                        checked={numberOfErrors}
+                                        onChange={handleIsChecked}  
+                                        name='numberOfErrors' 
+                                        color='primary' 
+                                        disableRipple
+                                     />
+                                } 
+                                    label='Number of Errors' 
+                            />
+                            </FormGroup>
+                        </FormControl>
+                    </Grid>
+                </Grid>
+                <Grid item spacing={4}>
+                    <Grid container spacing={4} justify='space-evenly'>
+                        <Grid item>
+                            <Button color='primary' onClick={handleSelectAll}>
+                                Select All
+                            </Button>
                         </Grid>
-                        <Grid item spacing={4}>
-                            <Grid container spacing={4} justify='space-evenly'>
-                                <Grid item>
-                                    <Button color='primary' onClick={handleSelectAll}>
-                                        Select All
-                                    </Button>
-                                </Grid>
-                                <Grid item>
-                                    <Button color='primary' onClick={handleUnselectAll}>
-                                        Unselect All
-                                    </Button>
-                                </Grid>
-                            </Grid>
+                        <Grid item>
+                            <Button color='primary' onClick={handleUnselectAll}>
+                                Unselect All
+                            </Button>
                         </Grid>
-                        <Grid spacing={6}>
-                            {metricsSelectError ? (
-                                <Grid item>
-                                    <Alert severity="error">
-                                        Please select all attributes
-                                    </Alert>
-                                </Grid>
-                            ) : null}
+                    </Grid>
+                </Grid>
+                <Grid spacing={6}>
+                    {metricsSelectError ? (
+                        <Grid item>
+                            <Alert severity="error">
+                                Please select all attributes
+                            </Alert>
                         </Grid>
+                    ) : null}
+                </Grid>
             </Grid>
             <Grid container justify='center'>
                 <Button onClick={handleBack}>Back</Button>

@@ -213,49 +213,55 @@ export default function LineStepper() {
         let allSequencesNotRef = [...inputSequences].filter((seq) => {
             return seq.label !== 'Reference'
        })
-       const { hammingDistance, levenshteinDistance, damerauLevenshteinDistance, conditionalEntropy, mutualInformation, numberOfErrors } = isChecked
+       const { hammingDistance, levenshteinDistance, damerauLevenshteinDistance, gcContent, conditionalEntropy, mutualInformation, numberOfErrors } = isChecked
        allSequencesNotRef.forEach((seq) => {
            const { label, value } = seq
            let sequenceMetrics = { label }
-           if (hammingDistance) {
-               sequenceMetrics['Hamming Distance'] = calculateHammingDistance(
-                   referenceSequence,
-                   value
-               )
-           }
-           if (levenshteinDistance) {
-               sequenceMetrics['Levenshtein Distance'] = calculateLevenshteinDistance(
-                   referenceSequence,
-                   value
-               )
-           }
-           if (conditionalEntropy) {
-            sequenceMetrics['Conditional Entropy'] = calculateConditionalEntropy(
-                referenceSequence,
-                value
-            )
-        }
-        if (damerauLevenshteinDistance) {
-            sequenceMetrics['Damerau-Levenshtein Distance'] = calculateDamerauLevenshtein(
-                referenceSequence,
-                value
-            )
-        }
-        if (mutualInformation) {
-            sequenceMetrics['Mutual Information'] = calculateMutualInfo(
-                referenceSequence,
-                value
-            )
-        }
-        if (numberOfErrors) {
-            sequenceMetrics['Number of Errors'] = calculateNumOfErrors(
-                referenceSequence,
-                value
-            )
-        }
-        calculatedMetrics.push(sequenceMetrics)
-       })
-       setDataToVisualize(calculatedMetrics)
+            if (hammingDistance) {
+                sequenceMetrics['Hamming Distance'] = calculateHammingDistance(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (levenshteinDistance) {
+                sequenceMetrics['Levenshtein Distance'] = calculateLevenshteinDistance(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (damerauLevenshteinDistance) {
+                sequenceMetrics['Damerau-Levenshtein Distance'] = calculateDamerauLevenshtein(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (gcContent) {
+                sequenceMetrics['GC Content'] = calculateGCcontent(
+                    //referenceSequence,
+                    value
+                )
+            }
+            if (conditionalEntropy) {
+                sequenceMetrics['Conditional Entropy'] = calculateConditionalEntropy(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (mutualInformation) {
+                sequenceMetrics['Mutual Information'] = calculateMutualInfo(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (numberOfErrors) {
+                sequenceMetrics['Number of Errors'] = calculateNumOfErrors(
+                    referenceSequence,
+                    value
+                )
+            }
+            calculatedMetrics.push(sequenceMetrics)
+        })
+        setDataToVisualize(calculatedMetrics)
     }
 
 

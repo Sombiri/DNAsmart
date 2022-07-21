@@ -88,18 +88,6 @@ export default function ResultView({
               />
             );
           }
-          if (features.hasOwnProperty("Conditional Entropy")) {
-            newLineUpColumns.push(
-              <LineUpNumberColumnDesc 
-                key="conditionalEntropy"
-                column="Conditional Entropy"
-                label="Conditional Entropy"
-                color="#c85200"
-                domain={[0, getMaximumValueOfMetric("Conditional Entropy")]}
-                width={200}
-              />
-            );
-          }
           if (features.hasOwnProperty("Damerau-Levenshtein Distance")) {
             newLineUpColumns.push(
               <LineUpNumberColumnDesc 
@@ -108,6 +96,30 @@ export default function ResultView({
                 label="Damerau-Levenshtein Distance"
                 color="#ffbc79"
                 domain={[0, getMaximumValueOfMetric("Damerau-Levenshtein Distance")]}
+                width={200}
+              />
+            );
+          }
+          if (features.hasOwnProperty("GC Content")) {
+            newLineUpColumns.push(
+              <LineUpNumberColumnDesc 
+                key="gcContent"
+                column="GC Content"
+                label="GC Content"
+                color="#7bccc4"
+                domain={[0, getMaximumValueOfMetric("GC Content")]}
+                width={200}
+              />
+            );
+          }
+          if (features.hasOwnProperty("Conditional Entropy")) {
+            newLineUpColumns.push(
+              <LineUpNumberColumnDesc 
+                key="conditionalEntropy"
+                column="Conditional Entropy"
+                label="Conditional Entropy"
+                color="#c85200"
+                domain={[0, getMaximumValueOfMetric("Conditional Entropy")]}
                 width={200}
               />
             );
