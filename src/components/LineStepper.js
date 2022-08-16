@@ -7,9 +7,11 @@ import clsx from 'clsx';
 import { calculateHammingDistance } from "../multi-attributes/HammingDistance";
 import { calculateLevenshteinDistance } from "../multi-attributes/LevenshteinDistance";
 import { calculateDamerauLevenshtein } from "../multi-attributes/DamereauLevenshtein";
+import { calculateGCcontent } from '../multi-attributes/GCcontent';
 import { calculateConditionalEntropy } from "../multi-attributes/ConditionalEntropy";
 import { calculateMutualInfo } from "../multi-attributes/MutualInformation";
 import { calculateNumOfErrors } from "../multi-attributes/NumberOfErrors";
+
 
 
 
@@ -60,6 +62,7 @@ export default function LineStepper() {
         hammingDistance: false,
         levenshteinDistance: false,
         damerauLevenshteinDistance: false,
+        gcContent: false,
         conditionalEntropy: false,
         mutualInformation: false,
         numberOfErrors: false
@@ -120,7 +123,14 @@ export default function LineStepper() {
     }
     
     const verifyLengthOfSequences = () => {
-        const allSequencesValuesNotRef = [...inputSequences].filter((seq) => {
+        const allSequencesValues = [...inputSequences].map((seq) => {
+            return seq.value
+        })
+        const seqOfUnequalLength = allSequencesValues.some(
+            (s) => s.length !== allSequencesValues[0].length
+        )
+        console.log(seqOfUnequalLength)
+        /* const allSequencesValuesNotRef = [...inputSequences].filter((seq) => {
              return seq.label !== 'Reference'
         }).map((s) => { return s.value})
         const referenceSequence = [...inputSequences].filter((refseq) => {
@@ -129,58 +139,76 @@ export default function LineStepper() {
         const seqOfUnequalLength = allSequencesValuesNotRef.some(
             (s) => s.length !== referenceSequence.length
         )
+        console.log(seqOfUnequalLength) */
         setIsChecked({ ...isChecked, hammingDistance: false})
         setHammingDistanceError(seqOfUnequalLength) 
     }
 
     const calculateMetrics = () => {
         const calculatedMetrics = []
-        const referenceSequence = [...inputSequences].filter((refseq) => {
+        console.log(calculatedMetrics)
+        let allSequences = [...inputSequences].map((seq) => {
+            return seq
+        })
+        const referenceSequence = [...allSequences].map(value => ({ value, sort: Math.random() }))
+            .sort((a,b) => a.sort - b.sort)
+            .map(({ value }) => value)
+            .reduce((acc, item) => {return acc = item.value})
+
+
+        /* const referenceSequence = [...inputSequences].filter((refseq) => {
             return refseq.label === 'Reference'
         }).reduce((acc, item) => { return acc = item.value}, '')
+        console.log(referenceSequence)
         let allSequencesNotRef = [...inputSequences].filter((seq) => {
             return seq.label !== 'Reference'
-       })
-       const { hammingDistance, levenshteinDistance, damerauLevenshteinDistance, conditionalEntropy, mutualInformation, numberOfErrors } = isChecked
-       allSequencesNotRef.forEach((seq) => {
-           const { label, value } = seq
-           let sequenceMetrics = { label }
-           if (hammingDistance) {
-               sequenceMetrics['Hamming Distance'] = calculateHammingDistance(
-                   referenceSequence,
-                   value
-               )
-           }
-           if (levenshteinDistance) {
-               sequenceMetrics['Levenshtein Distance'] = calculateLevenshteinDistance(
-                   referenceSequence,
-                   value
-               )
-           }
-           if (conditionalEntropy) {
-            sequenceMetrics['Conditional Entropy'] = calculateConditionalEntropy(
-                referenceSequence,
-                value
-            )
-        }
-        if (damerauLevenshteinDistance) {
-            sequenceMetrics['Damerau-Levenshtein Distance'] = calculateDamerauLevenshtein(
-                referenceSequence,
-                value
-            )
-        }
-        if (mutualInformation) {
-            sequenceMetrics['Mutual Information'] = calculateMutualInfo(
-                referenceSequence,
-                value
-            )
-        }
-        if (numberOfErrors) {
-            sequenceMetrics['Number of Errors'] = calculateNumOfErrors(
-                referenceSequence,
-                value
-            )
-        }
+       }) */
+       const { hammingDistance, levenshteinDistance, damerauLevenshteinDistance, gcContent, conditionalEntropy, mutualInformation, numberOfErrors } = isChecked
+       allSequences.forEach((seq) => {
+            const { label, value } = seq
+            let sequenceMetrics = { label }
+            if (hammingDistance) {
+                sequenceMetrics['Hamming Distance'] = calculateHammingDistance(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (levenshteinDistance) {
+                sequenceMetrics['Levenshtein Distance'] = calculateLevenshteinDistance(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (damerauLevenshteinDistance) {
+                sequenceMetrics['Damerau-Levenshtein Distance'] = calculateDamerauLevenshtein(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (gcContent) {
+                sequenceMetrics['GC Content'] = calculateGCcontent(
+                    //referenceSequence,
+                    value
+                )
+            }
+            if (conditionalEntropy) {
+                sequenceMetrics['Conditional Entropy'] = calculateConditionalEntropy(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (mutualInformation) {
+                sequenceMetrics['Mutual Information'] = calculateMutualInfo(
+                    referenceSequence,
+                    value
+                )
+            }
+            if (numberOfErrors) {
+                sequenceMetrics['Number of Errors'] = calculateNumOfErrors(
+                    referenceSequence,
+                    value
+                )
+            }
         calculatedMetrics.push(sequenceMetrics)
        })
        setDataToVisualize(calculatedMetrics)
@@ -291,6 +319,7 @@ export default function LineStepper() {
             hammingDistance: false,
             levenshteinDistance: false,
             damerauLevenshteinDistance: false,
+            gcContent: false,
             conditionalEntropy: false,
             mutualInformation: false,
             numberOfErrors: false
@@ -321,6 +350,7 @@ export default function LineStepper() {
             hammingDistance: false,
             levenshteinDistance: false,
             damerauLevenshteinDistance: false,
+            gcContent: false,
             conditionalEntropy: false,
             mutualInformation: false,
             numberOfErrors: false

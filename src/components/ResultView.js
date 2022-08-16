@@ -99,6 +99,18 @@ export default function ResultView({
                 width={200}
               />
             );
+          } 
+          if (features.hasOwnProperty("GC Content")) {
+            newLineUpColumns.push(
+              <LineUpNumberColumnDesc 
+                key="gcContent"
+                column="GC Content"
+                label="GC Content"
+                color="#7bccc4"
+                domain={[0, getMaximumValueOfMetric("GC Content")]}
+                width={200}
+              />
+            );
           }
           if (features.hasOwnProperty("Mutual Information")) {
             newLineUpColumns.push(
