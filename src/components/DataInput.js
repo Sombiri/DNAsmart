@@ -72,7 +72,10 @@ export default function DataInput({ handleOpen, handleNext, handleClose, handleC
                 To support the ranking of these decoded sequences, from a DNA storage system or experiment, the introduction of weights on certain attributes leads to a specific ranking (favoring specific sequences). 
                 By relying on sorting and grouping of such attributes, we obtain an interactive change in the ranking of the best sequences.
                 The rationale is to be able to provide insight into the attribute space by using different attribute combinations. 
-                For example, which attribute combination leads to the optimal sequence or top 3 sequences to compare encoding experiments.<br/><br/>
+                For example, which attribute combination leads to the optimal sequence or top 3 sequences to compare encoding experiments.
+                <br/><br/>
+
+                Use cases: <a href='https://dnasmart.mathematik.uni-marburg.de/MESA_fasta.php'></a>Parameter space of an encoding scheme and <a href='https://dnasmart.mathematik.uni-marburg.de/MESA_fasta.php'></a>Barcode validation and selection
                 
                 In the following survey, you will have two steps: <b>Step 1 and Step 2.</b><br/> 
                 There are questions for each step and at the end there is an additional survey <br/>to evaluate this tool and gather anonymous data from your participation.<br/><br/>
