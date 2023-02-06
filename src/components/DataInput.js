@@ -74,8 +74,6 @@ export default function DataInput({ handleOpen, handleNext, handleClose, handleC
                 The rationale is to be able to provide insight into the attribute space by using different attribute combinations. 
                 For example, which attribute combination leads to the optimal sequence or top 3 sequences to compare encoding experiments.
                 <br/><br/>
-
-                Use cases: <a href='https://dnasmart.mathematik.uni-marburg.de/MESA_fasta.php'></a>Parameter space of an encoding scheme and <a href='https://dnasmart.mathematik.uni-marburg.de/MESA_fasta.php'></a>Barcode validation and selection
                 
                 In the following survey, you will have two steps: <b>Step 1 and Step 2.</b><br/> 
                 There are questions for each step and at the end there is an additional survey <br/>to evaluate this tool and gather anonymous data from your participation.<br/><br/>
