@@ -1,0 +1,28 @@
+{
+    "results":[
+        {
+            "category":" sorting and ranking",
+            "type":"multiple",
+            "question":"Sort by the  Conditional Entropy attribute and choose from the options the TOP 3 sequences",
+            "correct_answer":"TD14, TD20, LT2",
+            "incorrect_answers":[
+                "TD18, TD16, TD15", 
+                "LT4, LT1, LT3", 
+                "RU1, LT2, TD13", 
+                "TD19, LT5, LT2"
+            ]
+        },
+        {
+            "category":"groupattributes",
+            "type":"multiple",
+            "question":"Merge the Levenshtein Distance(LD) and Number of Errors(NOE), change their weights to LD(60%) and NOE(40%), sort and then choose from the options the TOP 3 sequences.",
+            "correct_answer":"RU3, TD18, TD11",
+            "incorrect_answers":[
+                "TD18, TD16, TD15", 
+                "LT4, LT1, LT3", 
+                "RU1, LT2, TD13", 
+                "TD19, LT5, LT2"
+            ]
+        }
+    ]
+}
