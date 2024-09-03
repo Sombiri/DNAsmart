@@ -74,7 +74,7 @@ export default function DataInput({ handleOpen, handleNext, handleChange, select
                 The rationale is to be able to provide insight into the attribute space by using different attribute combinations. 
                 For example, which attribute combination leads to the optimal sequence or top 3 sequences to compare encoding experiments.<br/><br/>
                 
-                The evaluation Implementation with sample datatset can be found <a href='https://dnasmart.mathematik.uni-marburg.de/evaluation'>here.</a><br/>
+                A sample datatset can be found <a href='https://github.com/Sombiri/DNAsmart/tree/master/src/DNAsmart_data'>here.</a><br/> 
 
                 {/* In the following survey, you will have two steps: <b>Step 1 and Step 2.</b><br/> 
                 There are questions for each step and at the end there is an additional survey <br/>to evaluate this tool and gather anonymous data from your participation.<br/><br/>
