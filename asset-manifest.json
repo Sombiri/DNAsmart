@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/DNAsmart/static/css/main.1f5345d8.chunk.css",
-    "main.js": "/DNAsmart/static/js/main.f53a871c.chunk.js",
-    "main.js.map": "/DNAsmart/static/js/main.f53a871c.chunk.js.map",
+    "main.js": "/DNAsmart/static/js/main.aec82f9f.chunk.js",
+    "main.js.map": "/DNAsmart/static/js/main.aec82f9f.chunk.js.map",
     "runtime-main.js": "/DNAsmart/static/js/runtime-main.0edd132f.js",
     "runtime-main.js.map": "/DNAsmart/static/js/runtime-main.0edd132f.js.map",
     "static/js/2.ecaac52b.chunk.js": "/DNAsmart/static/js/2.ecaac52b.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.0edd132f.js",
     "static/js/2.ecaac52b.chunk.js",
     "static/css/main.1f5345d8.chunk.css",
-    "static/js/main.f53a871c.chunk.js"
+    "static/js/main.aec82f9f.chunk.js"
   ]
 }
